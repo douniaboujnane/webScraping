@@ -24,8 +24,15 @@ async def main():
             all_data.extend(cards_data)
 
             has_next = await go_to_next_page(page)
+            print("has_next:", has_next)
             if not has_next:
                 break
+        
+        if all_data:
+            await save_data_to_csv(all_data)
+            print(f"✅ {len(all_data)} propriétés sauvegardées dans 'resultats.csv'.")
+        else:
+            print("ℹ️ Aucune donnée à sauvegarder.")
 
         await close_browser(browser)
 

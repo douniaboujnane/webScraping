@@ -1,11 +1,9 @@
-from scraping.config import SELECTORS
+from scraping.config import BASE_URL, SELECTORS
 from scraping.safeGet import safe_get
-
 
 async def extract_data_from_page(page):
     data = []
-    base_url = "https://www.centris.ca"
-
+   
     cards = page.locator(SELECTORS["cards"]["container"])
     count = await cards.count()
 
@@ -13,7 +11,6 @@ async def extract_data_from_page(page):
         card = cards.nth(i)
 
         titre = await safe_get(card.locator(SELECTORS["cards"]["title"]), "content")
-        mls = await safe_get(card.locator(SELECTORS["cards"]["mls"]), "content")
         lien = await safe_get(card.locator(SELECTORS["cards"]["link"]), "href")
         image = await safe_get(card.locator(SELECTORS["cards"]["image"]), "src")
         prix = await safe_get(card.locator(SELECTORS["cards"]["price"]))
@@ -24,8 +21,7 @@ async def extract_data_from_page(page):
 
         data.append({
             "Titre": titre,
-            "MLS": mls,
-            "Lien": base_url + lien if lien != "-" else "-",
+            "Lien":  BASE_URL + lien if lien != "-" else "-",
             "Image": image,
             "Prix": prix,
             "Type": type_,
