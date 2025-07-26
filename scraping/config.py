@@ -6,7 +6,7 @@ SELECTORS = {
     "popUp": "h2.didomi-popup-notice-h2-custom",
     "closePopUp": "button[id='didomi-notice-agree-button']",
     "nextButton": "div.pager-bottom li.next",
-    "nextButtonDisabled": "div.pager-bottom li.next inactive",
+    "nextButtonDisabled": "div.pager-bottom li.next.inactive",
     "zone": "li[data-searchfilterid='GeographicSubArea']",
     "resultCount": "span.js-resultCount",
     "resultContainer": "#divMainResult",

@@ -33,6 +33,10 @@ tp1/
 
    Playwright : Installez les navigateurs nécessaires pour Playwright
 
+   ```bash
+   playwright install
+   ```
+
 ## Utilisation
 
 Clonez ce dépôt sur votre machine locale : https://github.com/douniaboujnane/webScraping
